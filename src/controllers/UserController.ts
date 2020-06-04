@@ -14,7 +14,7 @@ export interface IUser extends Document {
 class UserCntroller {
   
   async index(req: Request, res: Response){
-    const users = await UserModel.find();
+    const users = await UserModel.find().populate('adress');
     return res.json(users);
   }
 

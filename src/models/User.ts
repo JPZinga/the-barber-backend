@@ -7,7 +7,7 @@ import {IAdress} from './Adress';
 export interface IUser extends Document {
   userName: string;
   email: string;
-  password: string;
+  password: string | any;
   adress: IAdress['_id'];
   createAt: Date;
 }
@@ -32,7 +32,7 @@ const UserSchema: Schema = new Schema({
 
   adress: {
     type: mongoose.Schema.Types.ObjectId, 
-    ref: "AdressModel"
+    ref: "Adress"
   },
   
   createAt: { 
